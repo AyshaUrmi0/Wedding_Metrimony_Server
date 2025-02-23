@@ -1,10 +1,11 @@
+require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const express=require('express');
 const app=express();
 const cors=require('cors');
 const port=process.env.PORT || 5000;
 const { ObjectId } = require('mongodb');
-require('dotenv').config();
+
 const stripe = require("stripe")(process.env.STRIPE_SECRET);
 const router = express.Router();
 
@@ -287,8 +288,8 @@ async function run() {
     module.exports = router;
 
     // Connect to MongoDB
-    await client.db("admin").command({ ping: 1 });
-    console.log("Connected to MongoDB!");
+    //await client.db("admin").command({ ping: 1 });
+    //console.log("Connected to MongoDB!");
   } finally {
     // Keep connection open
   }
